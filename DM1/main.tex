@@ -1,0 +1,265 @@
+\documentclass[10pt]{scrartcl}
+
+
+\usepackage{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+\usepackage{amsmath, amssymb, amsfonts}
+
+\usepackage{enumitem}
+\usepackage[top=2cm, bottom=2.5cm, right=1.5cm, left=1.5cm]{geometry}
+
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{listings}
+\usepackage{euler}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{white},   
+    commentstyle=\color{red!90!black},
+    keywordstyle=\color{orange!90!black},
+    numberstyle=\scriptsize\ttfamily\color{gray},
+    stringstyle=\color{green!70!black},
+    basicstyle=\color{black},
+    breakatwhitespace=true,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=10pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=true,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+
+\title{Devoir Maison de mahtématiques N$^{\circ{}}$1}
+\author{Oscar Plaisant}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[L]{}
+\fancyhead[C]{}
+\fancyhead[R]{}
+
+\renewcommand{\footrulewidth}{1pt}
+\fancyfoot[L]{D.M. N$^\circ{}$1}
+\fancyfoot[C]{\thepage{}}
+\fancyfoot[R]{Oscar Plaisant}
+
+\thispagestyle{empty}
+\maketitle{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage{}%%%%%%%%%%%%%%%%
+\section*{Exercice 1}%%%%%%%
+
+
+\begin{enumerate}[label=\textbf{\arabic*{}.}]
+    \item\subsection*{}
+
+    \begin{enumerate}[label=\textbf{\alph*{})}]
+        \item Déterminer $u_0$, $u_1$, $u_2$ et $u_3$.
+        $$
+            \begin{array}{l|l}
+                u_0 = 200 & u_1=\dfrac{u_0}{2} + 180 = 190\\[3ex]
+                \hline\\
+                u_2 = \dfrac{u_1}{2} + 180 = 185 & u_3 = \dfrac{u_2}{2} + 180 = 182.5
+            \end{array}
+        $$
+
+        \item Peut-on confirmer les espérences de Marc ?
+
+        \begin{center}
+            Il semble que non.
+        \end{center}
+
+        \item Donner la relation de récurrence liant $u_{n+1}$ à $u_n$.
+
+        $$
+            u_n : 
+            \left\{
+            \begin{array}
+                {l}u_0 = 200 \\ u_{n+1} = \dfrac{u_n}{2} + 180
+            \end{array}
+            \right.
+        $$
+    \end{enumerate}
+
+    \item On note $(v_n)$ la suite définie sur $\mathbb{N}$ par $v_n=u_n - 360$
+
+    \begin{enumerate}[label=\textbf{\alph*)}]
+        \item Montrer que $\forall n\in\mathbb{N}, v_{n+1} = \dfrac{1}{2}v_n$
+
+        $$
+            \begin{array}{rl}
+                v_{n+1} = \dfrac{1}{2}v_n & \iff{} v_{n+1} = u_{n-1} - 360\\[3ex]
+                 & \iff{} v_{n+1} = \dfrac{u_n}{2}+180-360\\[3ex]
+                 & \iff{} \dfrac{u_n}{2} - 180\\[3ex]
+                 & \iff{} \dfrac{u_n - 360}{2}\\[3ex]
+                 & \iff{} \dfrac{v_n}{2}\\[3ex]
+                v_{n+1} & \iff{} \dfrac{1}{2}v_n\\
+            \end{array}
+        $$
+        
+
+        \item En déduire une expression du terme général de $(v_n)$
+
+        On sait que :
+
+        $$
+            v_{n+1} = \dfrac{1}{2}v_n
+        $$
+
+        Et que :
+
+        $$
+            \begin{array}{rl}
+                v_0 &= u_0 - 360\\
+                    &= 200 - 360\\
+                    &= -160\\
+            \end{array}
+        $$
+
+        On peut donc poser :
+
+        $$
+            v : \left\{
+            \begin{array}{l}
+                v_0 = -160\\
+                v_{n+1} = \dfrac{1}{2}v_n
+            \end{array}
+            \right.
+        $$
+
+        Et on à donc :
+
+        \[
+            v_n = -160\left(\frac{1}{2}\right)^n \iff{} v_{n+1} = \left(\frac{1}{2}\right) (-160)\left(\frac{1}{2}\right)^n \iff{} v_{n+1} = \frac{1}{2} v_n
+        \]
+
+        On peut donc dire que :
+
+        \[
+            v_n = -160\left(\frac{1}{2}\right)^n
+        \]
+
+        \item En déduire une expression générale de $(u_n)$
+
+        On sait que $u_n = v_n + 360$. On en déduit que :
+
+        \[
+            u_n = -160\left(\frac{1}{2}\right)^n + 360
+        \]
+
+        \item Préciser ce que peut espérer Marc en étudiant les variations et la limite de $(u_n)$.
+
+        On sait que $u_n = -160\left(\frac{1}{2}\right)^n + 360$
+
+        On peut dire que :
+
+        \[
+            -160\left(\frac{1}{2}\right)^n = -160\left(\frac{1}{2^n}\right)
+        \]
+
+        Or, la suite $n \mapsto{} 2^n$ est strictement croissante et est toujours positive. Donc, la suite $n \mapsto{} \frac{1}{2^n}$ est strictement décroissante (puisque la fonction inverse est strictement décroissante sur $\mathbb{R}^{+*}$). On peut aussi dire que $\displaystyle{}\lim_{n\rightarrow{} +\infty{}}\left(\dfrac{1}{2^n}\right) = 0$ car $\displaystyle{}\lim_{n\rightarrow{}+\infty{}}\left(2^n\right) = +\infty{}$ et que $\displaystyle{}\lim_{n\rightarrow{}+\infty{}}\left(\dfrac{1}{n}\right) = 0$. On peut donc dire que $\displaystyle{}\lim_{n\rightarrow{}+\infty{}}\left(-160\frac{1}{2^n}\right) = 0$, et finalement que : 
+
+        \[
+            \lim_{n\rightarrow{} +\infty{}}\left(-160\left(\frac{1}{2}\right)^n+360\right) = 360
+        \]
+
+        La suite $(u_n)$ tends donc vers $360$ en $-\infty{}$
+    \end{enumerate}
+
+    \item \begin{enumerate}[label=\textbf{\alph*{})}]
+        \item  Plus généralement, en notant $C$ le montant initial des économies de Marc, exprimer $u_n$ en fonction de $n$ et $C$
+
+        \[
+            u_n = (C - 360)\left(\frac{1}{2}\right)^n + 360
+        \]
+
+        \item Le montant initial de ses économies influe-t-il sur la limite de $(u_n)$ ? sur ses variations ?
+
+        En reprenant le raisonnement dévoloppé à la question 2.d), on peut montrer que $\displaystyle{}\lim_{n\rightarrow{}+\infty{}}\left(\frac{1}{2^n}\right) = 0$
+
+        Or, on sait que quelque soit $\psi$ appartenant à $\mathbb{R}$ :
+
+        \[
+            \displaystyle{}lim_{n\rightarrow{}+\infty{}}\left(\psi\frac{1}{2^n}\right) = 0
+        \]
+
+        On en déduit donc que le montant initial des économies de Marc n'influe pas sur la limite de $(u_n)$.
+
+        Le montant initial des économies de Marc n'influe pas sur les variations de $(u_n)$ si il est inférieur à 360. Si le montant initial $C$ dépasse 360, le sens de variation de $(u_n)$ est inversé (elle devient décroissante) mais sans changer de limite en $+\infty{}$. Si $C = 360$, la suite devient constante (puisque tous les termes sont annulés sauf le $+360$, ce qui fait que $C=360 \implies{} \forall n \in \mathbb{N}u_n = 360$)
+
+    \end{enumerate}
+\end{enumerate}
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage{}%%%%%%%%%%%%%%%%%%
+\section*{Exercice 2:}%%%%%%
+
+
+
+\begin{enumerate}[label=\textbf{\arabic*{}.}]
+    \item Déterminer les valeurs de $u_3$ et $u_4$.
+    
+    Le nombre de lapins au troisième mois est 2 car le couple initial à engendré un nouveau couple.
+
+    $$u_3 = 2$$
+
+    Le nombre de lapins au quatrième mois est 3 car le premier couple à engendré un nouveau couple, tandis que le second couple n'est pas encore pret à engendrer un nouveau couple.
+
+    $$u_4 = 3$$
+
+    \item Expliquer pourquoi les mois suivants, la suite vérifie la relation de récurrence $u_{n+2} = u_{n+1} + u_n$
+
+    Le nombre de lapins au mois $n$ est égal à la somme du nombre de lapins au mois $n-1$ et du nombre de lapins matures (c'est à dire aptes à faire des enfants) au mois $n$. Le nombre de lapins matures au mois $n$ est égal au nombre de lapins nés au mois $n-2$ ou avant, soit $u_{n-2}$.
+
+    On peut donc dire que :
+
+    \begin{tabular}{rcl}
+        (lapins au mois $n$) & = & (lapins au mois $n-1$) + (lapins matures au mois $n-1$)\\
+                            & = & (lapins au mois $n-1$) + (lapins nés avant le mois $n-1$)\\
+                            & = & (lapins au mois $n-1$) + (lapins au mois $n-2$)\\[3ex]
+
+    \end{tabular}
+
+     
+    En traduisant cela en langage mahtématique, on obtient: 
+    $$u_n = u_{n-1} + u_{n-2} \iff u_{n+2} = u_{n+1} + u_n$$
+
+    \item Le(s)quel(s) des algorithmes ci-dessous a (ont) permis d'obtenir les premier termes suivants de la suite, et pour quelle valeur de $n$?
+
+    Le programme ci-dessous permet de déterminer quel algorithme donne le bon résultat. Pour trouver la valeur de $n$ correspondante, il suffit de tester quelques valeur jusqu'à ce que au moins l'un des algorithmes renvoient la bonne valeur
+    
+    \lstinputlisting[language=Python]{Test_Algos_1-2-3.py}
+
+\end{enumerate}
+
+
+
+\end{document}
+

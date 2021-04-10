@@ -1,0 +1,4 @@
+
+** (evince:1260): WARNING **: 00:00:35.508: Couldn't connect to D-Bus system bus, Impossible de se connecter : No such file or directory
+2021-03-03 14:51:27.955 evince[1260:42539] HIToolbox: received notification of WindowServer event port death.
+2021-03-03 14:51:29.486 evince[1260:42539] port matched the WindowServer port created in BindCGSToRunLoop

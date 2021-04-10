@@ -1,0 +1,123 @@
+%%%%%%%%%%%%%%%%%%%
+% =============== %
+% = Les paquets = %
+% =============== %
+%%%%%%%%%%%%%%%%%%%
+
+\documentclass[14pt,aspectratio=169]{beamer} % settings généraux
+\usepackage{etex} % pour ajouter de la mémoire au compilateur si le document est trop lourd
+
+
+
+
+%%%%% symboles, langue %%%%%
+
+\usepackage[utf8]{inputenc} % encodage utf8
+\usepackage[french]{babel} % caractères francais (é,è,à,ê...)
+\usepackage[T1]{fontenc} % mode francais
+\usepackage{euler} % fonte du mode math
+\usepackage{ulem} % symboles et polices
+\usepackage{amsmath,amsthm,amsfonts,amssymb,amscd} % ams(
+\usepackage{skull}
+\usepackage{fontawesome} % symboles
+\usepackage{tipa} % symboles
+
+\usepackage{mathrsfs} % fontes de maths
+\usepackage{enumitem} % plus de libereté dans "enumerate"
+\usepackage{array}
+
+
+
+%%%%% dessin, mise en page %%%%%
+
+\usepackage{xcolor} % pour des couleurs évoluées
+\usepackage{graphicx} % pour des dessins
+\usepackage{hyperref} % pour des hyper-liens
+% \usepackage{multicol} %
+
+
+% Packages Figures et graphiques
+% \usepackage{graphics} % inclusion de figures
+\usepackage{graphicx} %inclusion de figures
+
+\usepackage{tikz} % Tikz !
+\usepackage{pixelart} % pour dessiner du pixel-art
+\usepackage{pdfpages} % pour inclure des pages pdf
+
+\definecolor{gold}{RGB}{255, 215, 0}
+
+\definecolor{pixel 0}{HTML}{FFFFFF} % dead
+\definecolor{pixel 1}{HTML}{000000} % alive
+\definecolor{pixel 2}{HTML}{880000} % will die
+\definecolor{pixel 3}{HTML}{6EA0F0} % will birth
+\definecolor{pixel c}{HTML}{6B0000} % central cell
+\definecolor{pixel n}{HTML}{FFA0A0} % neighbours
+
+\newcommand{\pixelart}[2]{%
+        \begin{tikzpicture}[scale=#2]
+        \foreach \line [count=\y] in #1 {
+            \foreach \pix [count=\x] in \line {
+            \draw[fill=pixel \pix] (\x,-\y) rectangle +(1,1);
+            }
+        }
+        \end{tikzpicture}
+    }
+
+\newcommand{\framePixelScale}{.5}
+
+\newcommand{\gridFrame}[2]{%
+\begin{frame}{#1}
+    \begin{center}
+        \vspace*{-1cm}\hspace*{-1.2cm}
+        \pixelart{#2}{\framePixelScale}
+    \end{center}
+\end{frame}
+}
+
+
+\newcommand{\DIE}{{\color{pixel 2}$\skull$}}
+\newcommand{\STAY}{{\color{black}\faThumbsOUp}}
+\newcommand{\BIRTH}{{\large\color{pixel 3}$\bigstar$}}
+
+
+
+\setbeamercolor{block body example}{bg=red!20!white}
+\setbeamercolor{block title example}{fg=red, bg=red!40!white}
+
+\newcommand{\inputanimation}[1]{\input{_sections/animations/#1}}
+
+% \renewcommand{\inputanimation}[1]{#1}
+
+%% les fontes
+%\DeclareTextFontCommand{\angles}{\fontfamily{bch}\selectfont}
+%\DeclareTextFontCommand{\arrondi}{\fontfamily{ppl}\selectfont}
+%\DeclareTextFontCommand{\fin}{\fontfamily{pag}\selectfont}
+%\DeclareTextFontCommand{\gras}{\fontfamily{bch}\selectfont}
+%\DeclareTextFontCommand{\anglesfin}{\fontfamily{pnc}\selectfont}
+
+\setitemize[0]{font=\bfseries, label=\bwpixelart[scale=.04, color=UBCblue, raise=-.3ex]{%
+        % 11111111011
+        % 11111111011
+        % 00000000011
+        % 00000000011
+        % 11000000011
+        % 11000000011
+        % 11000000011
+        % 11
+        % 11
+        % 11001111111
+        % 11001111111
+        00000111100
+        01101000010
+        10001000010
+        10000110000
+        10010000110
+        10010001001
+        01100001001
+        00001100001
+        01000010001
+        01000010110
+        00111100000
+    }
+}
+

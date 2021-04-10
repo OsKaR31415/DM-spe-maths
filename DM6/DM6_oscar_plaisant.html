@@ -1,0 +1,89 @@
+<h1 id="exercice-81-p-235">Exercice 81 p 235</h1>
+<h2 id="section">1.</h2>
+<p><span class="math inline">$(E_1) : y' = \dfrac{y}{4}$</span></p>
+<h3 id="a.">a.</h3>
+<p><span class="math inline">(<em>E</em><sub>1</sub>)</span> est une équation du type <span class="math inline"><em>y</em>′ = <em>a</em><em>y</em></span>, avec <span class="math inline"><em>a</em></span> un réel, donc les solutions de <span class="math inline">(<em>E</em><sub>1</sub>)</span> sont de la forme <span class="math inline"><em>f</em>(<em>x</em>) = <em>C</em><em>e</em><sup><em>a</em><em>x</em></sup></span>, avec <span class="math inline"><em>C</em></span> une constante réelle, soit, dans le cas de <span class="math inline">(<em>E</em><sub>1</sub>)</span> :</p>
+<p><br /><span class="math display">$$f(x) = Ce^{\frac{x}{4}}$$</span><br />, avec <span class="math inline"><em>C</em></span> une constante réelle.</p>
+<p>On cherche donc une valeur de <span class="math inline"><em>C</em></span> pour laquelle <span class="math inline"><em>f</em>(0) = 0, 5</span>, soit :</p>
+<p><br /><span class="math display">$$
+\begin{array}{rcl}
+f(0)= 0,5 &amp;\iff&amp; Ce^{\frac{0}{4}} = 0,5\\
+&amp;\iff&amp; C = \dfrac{0,5}{e^0}\\
+&amp;\iff&amp; C = 0,4
+\end{array}
+$$</span><br /></p>
+<p>on a donc : <span class="math inline">$f(x) = \dfrac{1}{2}e^{\frac{x}{4}}$</span></p>
+<h3 id="b.">b.</h3>
+<p>La fonction <span class="math inline">$x\mapsto \dfrac{x}{4}$</span> est strictement croissante sur <span class="math inline">ℝ</span>, et la fonction exponentielle est également strictement croissante sur <span class="math inline">ℝ</span>. La fonction <span class="math inline">$x\mapsto e^{\frac{x}{4}}$</span> est donc aussi strictement croissante sur <span class="math inline">ℝ</span>.</p>
+<p>On sait que <span class="math inline">$\lim_{t\mapsto +\infty}\left( \dfrac{t}{4} \right) = +\infty$</span>. On sait aussi que <span class="math inline">lim<sub><em>t</em> ↦  + ∞</sub>(<em>e</em><sup><em>t</em></sup>) =  + ∞</span></p>
+<p>Donc, on a : <span class="math inline">$\lim_{t\mapsto +\infty}\left( e^{\frac{t}{4}} \right) = +\infty$</span></p>
+<p>On en déduit que <span class="math inline">$\lim_{t\mapsto +\infty}\left( \dfrac{1}{2} e^{\frac{t}{4}} \right) = +\infty$</span>, soit que :</p>
+<p><br /><span class="math display">lim<sub><em>t</em> ↦  + ∞</sub>(<em>f</em>(<em>t</em>)) =  + ∞</span><br /></p>
+<h3 id="c.">c.</h3>
+<p>On cherche la plus petite valeur de <span class="math inline"><em>t</em></span> telle que <span class="math inline"><em>f</em>(<em>t</em>) &gt; 3</span>.</p>
+<p><br /><span class="math display">$$
+\begin{array}{rcl}
+f(t) &gt; 3 &amp;\iff&amp; \dfrac{1}{2}e^{\frac{t}{4}} &gt; 3\\
+&amp;\iff&amp; e^{\frac{t}{4}} &gt; 6, \text{ et, puisque } e^{\frac{t}{4}} \text{ et } 6 &gt; 0 :\\
+&amp;\iff&amp; \frac{t}{4} &gt; \ln{6}\\
+&amp;\iff&amp; t &gt; 4\ln{6}\\
+\end{array}
+$$</span><br /></p>
+<p>la population dépasse donc les 300 individus après <span class="math inline">4ln 6</span> jours, soit environ 7 ans et 61 jours.</p>
+<h2 id="section-1">2.</h2>
+<h3 id="a.-1">a.</h3>
+<h1 id="exercice-70-p-233">Exercice 70 p 233</h1>
+<p><span class="math inline">(<em>E</em>) : <em>y</em>′ + <em>y</em><sup>2</sup> = 4</span>, avec <span class="math inline"><em>y</em>(0) = 0</span></p>
+<p>Avec la méthode d’Euler, pour <span class="math inline"><em>h</em></span> proche de 0, on obtient l’approximation suivante :</p>
+<p><br /><span class="math display"><em>y</em>(<em>x</em><sub><em>n</em></sub> + <em>h</em>) ≈ <em>f</em>(<em>x</em><sub><em>n</em></sub>) + <em>h</em><em>f</em>′(<em>x</em><sub><em>n</em></sub>)</span><br /></p>
+<p>soit</p>
+<p><br /><span class="math display"><em>y</em>(<em>x</em><sub><em>n</em></sub> + <em>h</em>) ≈ <em>f</em>(<em>x</em><sub><em>n</em></sub>) + <em>h</em>(4−(<em>y</em>(<em>x</em><sub><em>n</em></sub>))<sup>2</sup>)</span><br /></p>
+<pre class="apl"><code>      h ← 0.1
+      nextStep ← {⍵+h×(4-⍵*2)}
+      list ← {(nextStep⍣⍵)0}¨⍳
+      graphStep ← 0.05
+      plot ← ⍪{⍵≤0:&#39;⋄&#39; ⋄ &#39;—&#39;,∇⍵-graphStep}¨
+
+      ⍪list 20
+0.4
+0.784
+1.1225344
+1.396526052
+1.601497551
+1.74501811
+1.84050929
+1.901761845
+1.940092034
+1.963696324
+1.978085999
+1.986803577
+1.992064732
+1.995232542
+1.997137252
+1.998281532
+1.998968624
+1.999381068
+1.999628602
+1.999777148
+      plot list 20
+ —————————⋄
+ ————————————————⋄
+ ———————————————————————⋄
+ ————————————————————————————⋄
+ —————————————————————————————————⋄
+ ———————————————————————————————————⋄
+ —————————————————————————————————————⋄
+ ———————————————————————————————————————⋄
+ ———————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄
+ ————————————————————————————————————————⋄</code></pre>
