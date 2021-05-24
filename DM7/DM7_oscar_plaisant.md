@@ -210,16 +210,24 @@ Il existe donc bien une valeur de $\lambda$ pour laquelle $\mathcal{A}_\lambda =
 
  1. Puisque [UV) et [EF] sont parallèles, et que [KM] appartient à (UVK) et à (SEF), d'après le théorème du toit, on peut affirmer que (KM) est parallèle à (UV) et à (EF)
 
- 2. On sait que (UK) et (NP) sont tous les deux sur le plan (UVK). On sait également que [UK] est sur (SOA) et que [NP] est sur (CGB). Puisque ces deux plans sont parallèles et que [UK] et [NP] sont sur un plan qui leur est séquent, on peut dire que [UK] et [NP] sont parallèles.
+ 2. On sait que (UK) et (NP) sont tous les deux sur le plan (UVK). On sait également que [UK] est sur (SOA) et que [NP] est sur (CGB). Puisque ces deux plans sont parallèles et que [UK] et [NP] sont sur un plan qui leur est sécant, on peut dire que [UK] et [NP] sont parallèles.
 
  3. a) K est sur [ES]. On commence donc par chercher l'équation paramétrique de (ES).
 
-On cherche à déterminer le vercteur dirrecteur de (ES) :
+On cherche à déterminer le vecteur directeur de (ES) :
 
-$\vect{ES}\left( \begin{array}{c}x_S - x_E\\ y_S - y_E\\ z_S - z_E\end{array} \right) $
-
-
+$\vect{ES}\left( \begin{array}{c}x_S - x_E\\ y_S - y_E\\ z_S - z_E\end{array} \right) = \vect{ES} \left( \begin{array}{c} -4\\ 0\\ 1\end{array} \right)$
 
 
+(ES) est donc la droite de vecteur directeur $\vect{ES}$ et qui passer par le point S.
+
+$(ES) : \left\{ \begin{array}{lll} x &=& -4t + a\\ y &=& b, \text{ avec } (a, b, c) \in \mathbb{R}\\ z &=& t + c\end{array} \right.$
+
+et avec $(a, b, c)$ tels qu'il existe une valeur de $t$ telle que $(x; y; z) = (0; 0; 3,5)$, soit $(a; b; c) = (0; 0; 3,5)$
+
+
+$(ES) : \left\{ \begin{array}{lll} x &=& -4t\\ y &=& 0\\ z &=& t + 3,5 \end{array} \right.$
+
+Puisque K est sur (ES), $K(1,2; 0; 3,2) \iff \exists t \in \mathbb{R}, \left\{ \begin{array}{lll}-4t &=& 1,2\\ 0 &=& 0\\ 3,2 &=& t + 3,5 \end{array} \right.$, ce qui est vérifié pour $t = -0,3$. K est donc bien sur (ES).
 
 
